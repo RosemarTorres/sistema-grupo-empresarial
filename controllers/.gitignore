@@ -1,0 +1,110 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.history/
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+.yarn/*
+!.yarn/cache
+
+# Build / dist / assets generados
+dist/
+build/
+public/build/
+public/dist/
+src/build/
+*.min.js
+*.min.css
+*.map
+.bundle.js
+*.bundle.*
+
+# PHP / Composer
+/vendor/
+composer.phar
+# Si prefieres versionar composer.lock para la app, comenta la siguiente línea
+# composer.lock
+
+# Entornos / secretos
+.env
+.env.* 
+.env.local
+.env.production
+.env.development
+.env.test
+.env.backup
+*.pem
+*.key
+*.crt
+*.p12
+credentials.json
+secrets.json
+
+# Logs / temporales / cache
+logs/
+log/
+*.log
+storage/
+cache/
+.cache/
+tmp/
+temp/
+*.tmp
+php_error.log
+npm-debug.log
+
+# Frameworks / carpetas comunes
+var/
+var/cache/
+var/log/
+var/sessions/
+storage/
+uploads/
+public/uploads/
+
+# Bases de datos
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.sql.gz
+dump.sql
+
+# Tests / cobertura
+coverage/
+htmlcov/
+.phpunit.result.cache
+phpunit.result.cache
+pytest_cache/
+
+# Archivos de sistema y backup
+*.swp
+*~
+*.bak
+*.old
+*.orig
+
+# Certificados / llaves
+certs/
+ssl/
+*.csr
+
+# Otros
+.Dockerfile.swp
+docker-compose.override.yml
+.envrc
+.vagrant/
+.idea/**/workspace.xml

@@ -1,0 +1,242 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+
+
+.perfil-trabajador {
+    @include m.contenedor;
+    padding: 3rem 0;
+
+    &__titulo {
+        text-align: center;
+        font-size: 3.2rem;
+        margin-bottom: 3rem;
+        color: v.$azul;
+    }
+
+   
+
+    &__contenido {
+        background-color: v.$gris-claro;
+        border-radius: 1.5rem;
+        padding: 3rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+    }
+
+    &__seccion {
+        margin-bottom: 3rem;
+
+        h2 {
+            font-size: 2.2rem;
+            color: v.$gris-oscuro;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid v.$gris;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+
+            strong {
+                font-weight: v.$bold;
+                color: v.$negro;
+            }
+        }
+    }
+
+    @include m.desktop {
+        &__contenido {
+            padding: 4rem 5rem;
+        }
+
+        &__acciones {
+            justify-content: space-between;
+        }
+    }
+
+    // Ocultar botones al imprimir
+    @media print {
+        &__acciones {
+            display: none;
+        }
+
+        .boton {
+            display: none !important;
+        }
+
+        body {
+            background-color: white;
+        }
+    }
+     &__acciones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; // <- centra horizontalmente
+        gap: 2rem;
+        margin: 3rem auto 0 auto;
+        text-align: center;
+
+        .boton {
+            @include m.boton(v.$gris-oscuro, v.$blanco);
+            font-size: 1.4rem;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 1rem;
+
+            i {
+                font-size: 1.6rem;
+            }
+
+            &.eliminar {
+                background-color: v.$rojo;
+
+                &:hover {
+                    background-color: darken(v.$rojo, 10%);
+                }
+            }
+
+            &.editar {
+                background-color: v.$azul;
+
+                &:hover {
+                    background-color: darken(v.$azul, 10%);
+                }
+            }
+
+            &.pdf {
+                background-color: v.$gris;
+
+                &:hover {
+                    background-color: darken(v.$gris, 10%);
+                }
+            }
+
+            &.imprimir {
+                background-color: v.$verde;
+
+                &:hover {
+                    background-color: darken(v.$verde, 10%);
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        form {
+            display: inline-block;
+        }
+    }
+}
+
+.icono-alerta {
+    width: 1.6rem;
+         height: auto;
+        vertical-align: middle;
+        color: v.$rojo;
+        font-size: 1.6rem;
+}
+
+.icono-ok {
+   width: 1.6rem;
+         height: auto;
+        vertical-align: middle;
+        color: v.$verde;
+        font-size: 1.6rem;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; // arriba del icono
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 1.2rem;
+    }
+
+    &:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+// Botón pequeño (ver documento)
+.boton-pequeno {
+    display: inline-block;
+    margin-left: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: darken(#007bff, 10%);
+    }
+}
+
+// Fecha de vencimiento
+.fecha-vencimiento {
+    font-size: 1.3rem;
+    color: #555;
+    margin-left: 1rem;
+
+}
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    header,
+    .sidebar,
+    .perfil-trabajador__acciones,
+    .boton,
+    .boton.imprimir,
+    .boton.pdf,
+    .boton.editar,
+    .boton.eliminar,
+    .boton-cancelar {
+        display: none !important;
+    }
+
+    .perfil-trabajador {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+    }
+
+    .perfil-trabajador__contenido {
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background: white;
+        padding: 0;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+}

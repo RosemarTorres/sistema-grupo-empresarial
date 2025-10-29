@@ -1,0 +1,68 @@
+
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.dashboard__estadisticas {
+    margin-top: 4rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    
+    &-titulo {
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.dashboard__graficas {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @include m.tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    canvas {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+}
+
+.boton-descargar {
+    display: inline-block;
+    margin-top: 2rem;
+    background: v.$azul;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 2rem;
+
+    i {
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        background: darken(v.$azul, 10%);
+    }
+}
+.grafica-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+        margin-bottom: 1rem;
+        color: #333;
+    }
+}

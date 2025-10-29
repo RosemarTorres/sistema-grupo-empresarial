@@ -1,0 +1,120 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.tabla-trabajadores {
+    @include m.contenedor;
+   
+   
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1.6rem;
+        background-color: v.$blanco;
+
+        th, td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid v.$gris-claro;
+        }
+
+        thead {
+            background-color: v.$gris-oscuro;
+            color: v.$blanco;
+        }
+
+        tbody tr:hover {
+            background-color: v.$gris-claro;
+        }
+    }
+
+    img.icono-alerta {
+         width: 1.8rem;
+         height: auto;
+        vertical-align: middle;
+        color: v.$rojo;
+        font-size: 1.8rem;
+}
+
+  img.icono-ok {
+    width: 1.8rem;
+         height: auto;
+        vertical-align: middle;
+    
+        font-size: 1.8rem;
+}
+}
+
+
+.filtros {
+    @include m.contenedor;
+    margin-bottom: 3rem;
+
+    &__formulario {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        input[type="text"],
+        select {
+            flex: 1;
+            padding: 1rem;
+            font-size: 1.6rem;
+            border: 1px solid v.$gris;
+            border-radius: 1rem;
+        }
+
+        button {
+            @include m.boton(v.$azul, v.$blanco);
+            width: auto;
+        }
+    }
+}
+.tooltip img{
+    position: relative;
+    display: inline-block;
+
+     i {
+        pointer-events: none;
+    }
+
+    .tooltiptext {
+          visibility: hidden;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.8rem 1.2rem;
+        position: absolute;
+        z-index: 9999;
+        bottom: calc(100% + 10px); // aparece arriba del icono
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: normal; // permitir múltiples líneas si es necesario
+        max-width: 200px;
+        font-size: 1.3rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        transition: opacity 0.3s ease-in-out;
+
+        
+    }
+
+    &:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; // posiciona debajo del tooltip
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+}
+
+

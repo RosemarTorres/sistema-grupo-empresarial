@@ -1,0 +1,35 @@
+
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+
+.dashboard__acciones-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .boton-enviar,
+    .boton-cancelar {
+        @include m.boton(v.$azul, v.$blanco); // Usa tus mixins si tienes
+        padding: 1rem 2.5rem;
+        font-size: 1.4rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        border-radius: 0.8rem;
+
+        i {
+            font-size: 1.4rem;
+        }
+    }
+
+    .boton-cancelar {
+        background-color: v.$rojo;
+        &:hover {
+            background-color: darken(v.$rojo, 10%);
+        }
+    }
+}
